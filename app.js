@@ -113,9 +113,24 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
-function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
+var i;
+
+function messageMaker(a, b) {
+  var fun = a + ',' + b
+  return fun;
+}
+
+function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+  let looper = dynamicArray[0];
+  let messLoop = dynamicArray[0];
+  for (i = 0; i < (dynamicArray.length - 1); i++) {
+    looper = multiply(looper, dynamicArray[i + 1])[0];
+    messLoop = messageMaker(messLoop, dynamicArray[i + 1]);
+  }
+  let awesome = 'The numbers ' + messLoop + ' have a product of ' + looper + ".";
+  return [looper, awesome]
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
